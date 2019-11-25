@@ -1,0 +1,13 @@
+{% extends "cafeblogs/base.html" %}
+{% block content %}
+  <p>Add a new topic:</p>
+
+  <form action="{% url 'cafeblogs:new_topic' %}" method='post'>
+  	# To prevent attackers from unauthorized access to the server.
+    {% csrf_token %}
+    # The as_p modifier to render all the form elements in paragraph format
+    {{ form.as_p }}
+    <button name="submit">Add topic</button>
+  </form>
+
+{% endblock content %}

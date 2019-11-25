@@ -42,21 +42,21 @@ def new_entry(request, topic_id):
 	if request.method != 'POST':
 		# No data submitted; create a blank form.
 		form = EntryForm()
- 	else:
+	else:
  		# POST data submitted; process data.
 		form = EntryForm(data=request.POST)
- 		if form.is_valid():
- 			#  To create a new entry object and assign it to new_entry without saving it to the database yet
+		if form.is_valid():
+			#  To create a new entry object and assign it to new_entry without saving it to the database yet
 			new_entry = form.save(commit=False)
 			new_entry.topic = topic
- 			new_entry.save()
+			new_entry.save()
 			return redirect('cafeblogs:topic', topic_id=topic_id)
+						
+ 	# Display a blank or invalid form.
+	context = {'topic': topic, 'form': form}
+	return render(request, 'cafeblogs/new_entry.html', context)
 
- # Display a blank or invalid form.
- context = {'topic': topic, 'form': form}
- return render(request, 'cafeblogs/new_entry.html', context)
-
- def edit_entry(request, entry_id):
+def edit_entry(request, entry_id):
  	"""Edit an existing entry."""
  	entry = Entry.objects.get(id=entry_id)
  	topic = entry.topic
@@ -71,5 +71,5 @@ def new_entry(request, topic_id):
  			form.save()
  			return redirect('cafeblogs:topic', topic_id=topic.id)
  			
- context = {'entry': entry, 'topic': topic, 'form': form}
- return render(request, 'cafeblogs/edit_entry.html', context)
+ 	context = {'entry': entry, 'topic': topic, 'form': form}
+ 	return render(request, 'cafeblogs/edit_entry.html', context)

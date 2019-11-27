@@ -1,8 +1,13 @@
 {% extends "cafeblogs/base.html" %}
 
-{% block content %}
+{% block page_header %}
+  <div class="jumbotron">
+    <h1 class="display-3">CCD Speciality Coffee - From Seed to Cup with IOT.</h1>
 
-<p>CCD Cafe Blogs helps you keep track of your coffee learning, for any topic you're
-learning about.</p>
+    <p class="lead">Make your own Speciality Traveling Blog, and keep a wonderful coffee trip from seed to cup extending IOT and more. Whenever you look something new
+        about CCD Speciality Coffee, it is a good source for you to explore the fanstics world.</p>
 
-{% endblock content %}
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        role="button">Register &raquo;</a>
+  </div>
+{% endblock page_header %}

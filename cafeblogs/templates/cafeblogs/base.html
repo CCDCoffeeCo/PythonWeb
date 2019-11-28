@@ -26,8 +26,13 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'cafeblogs:topics'%}">
+          <a class="nav-link" href="{% url 'cafeblogs:blogs'%}">
               Cafe Blogs</a></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cafeblogs:topics'%}">
+              Cafe Topics</a></li>
       </ul>
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}

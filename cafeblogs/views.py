@@ -21,6 +21,15 @@ def topics(request):
  	context = {'topics': topics}
  	return render(request, 'cafeblogs/topics.html', context)
 
+def blogs(request):
+ 	"""Show all topics and entries in blogs."""
+ 	#topic = Topic.objects.get(id=topic_id)
+ 	topics = Topic.objects.order_by('date_added')
+ 	context = {'topics': topics}
+ 	#entries = topic.entry_set.order_by('-date_added')
+ 	#context = {'topic': topic, 'entries': entries}
+ 	return render(request, 'cafeblogs/blogs.html', context)
+
 @login_required
 def topic(request, topic_id):
 	"""Show a single topic and all its entries."""

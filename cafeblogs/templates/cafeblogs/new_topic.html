@@ -10,8 +10,12 @@
 
   <form action="{% url 'cafeblogs:new_topic' %}" method='post'>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Add topic</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">Add topic</button>
+    {% endbuttons %}
+    <input type="hidden" name="next" 
+      value="{% url 'cafeblogs:index' %}" />
   </form>
 
 {% endblock content %}

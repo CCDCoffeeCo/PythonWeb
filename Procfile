@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath ccdcafe wsgi --log-file 
+web: gunicorn ccdcafe.wsgi

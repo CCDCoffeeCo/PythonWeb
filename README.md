@@ -23,5 +23,4 @@ There are named phrases for the various states of the code throughout the develo
 
 ## Get the code
 
-To check the code for a review:
-https://github.com/CCDCoffeeCo/PythonWeb
+To check the website for a review: http://ccdcafe.herokuapp.com/
